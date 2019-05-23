@@ -14,7 +14,9 @@ namespace StudentManagementSystem
         //This is the default no-argws constructor
         //The sompiler will create a no-args constructor
         //if no other constructors are found
-        public Student() { }
+        public Student()
+        {
+        }
 
         public Student(string firstName, string lastName)
         {
