@@ -31,9 +31,23 @@ namespace StudentManagementSystem
             SqlDataReader rdr = selCmd.ExecuteReader(); //returns a sql data reader object
 
             //Do something with results
-
+            List<Student> stuList = new List<Student>();
+            while (rdr.Read()) //similar to hasNext() (goes through each row)
+            {
+                Student tempStu = new Student
+                {
+                    StudentId = Convert.ToInt32(rdr["SID"]),
+                    FirstName = Convert.ToString(rdr["FirstName"]),
+                    LastName = Convert.ToString(rdr["LastName"]),
+                    DateOfBirth = Convert.ToDateTime(rdr["DOB"]),
+                    ProgramOfChoice = Convert.ToString(rdr["Program"])
+                };
+                stuList.Add(tempStu);
+            }
 
             //Close connection
+            con.Close();
+            return stuList;
         }
 
         public static void Add(Student stu)

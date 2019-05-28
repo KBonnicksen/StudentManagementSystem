@@ -22,16 +22,18 @@ namespace StudentManagementSystem
         //Example is the math class
         private void Form1_Load(object sender, EventArgs e)
         {
-            Student testStu = new Student
-            {
-                FirstName = "Pam",
-                LastName = "Halpert",
-                ProgramOfChoice = "Art",
-            };
-            Validator.IsPresent(new TextBox());
-
+            
         }
 
-        
+        private void btnViewStudents_Click(object sender, EventArgs e)
+        {
+            lstStudents.Visible = true;
+            List<Student> students = StudentDB.GetAllStudents();
+
+            foreach (Student s in students)
+            {
+                lstStudents.Items.Add($"{s.FirstName} {s.LastName}");
+            }
+        }
     }
 }
