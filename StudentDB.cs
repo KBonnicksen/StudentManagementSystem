@@ -10,6 +10,10 @@ namespace StudentManagementSystem
     //DATABASE CLASS!!!!!!!!!!!!!!
     static class StudentDB
     {
+        /// <summary>
+        /// Returns a list of all students in the database
+        /// </summary>
+        /// <returns></returns>
         public static List<Student> GetAllStudents()
         {
             //Get a connection to the DB
@@ -50,9 +54,47 @@ namespace StudentManagementSystem
             return stuList;
         }
 
+        /// <summary>
+        /// Adds a student to the database
+        /// </summary>
+        /// <param name="stu">Student to be added</param>
+        /// <exception cref="SqlException"></exception>
+        /// 
         public static void Add(Student stu)
         {
-            throw new NotImplementedException();
+            //create connection
+            SqlConnection con = SmsDB.GetConnection();
+
+            //create command
+            SqlCommand addCmd = new SqlCommand
+            {
+                Connection = con,
+                //ALWAYS USE PARAMETERIZED QUERIES!!!!
+                CommandText =
+                    "INSERT INTO Students(FirstName, " +
+                        "LastName, DOB, Program) " +
+                    "VALUES (@fName, @lName, @dob, @program)",
+            };
+
+            //Add values into parameters
+            addCmd.Parameters.AddWithValue("fName", stu.FirstName);
+            addCmd.Parameters.AddWithValue("@lName", stu.LastName);
+            addCmd.Parameters.AddWithValue("@dob", stu.DateOfBirth);
+            addCmd.Parameters.AddWithValue("@program", stu.ProgramOfChoice);
+
+            //open connection
+            //this can fail so you wrap it in a try/catch statement
+            try
+            {
+                con.Open();
+                int rowsAffected = addCmd.ExecuteNonQuery();
+                //This will insert correctly OR throw a SQLException
+            }
+            finally //finally always executes
+            {
+                //con.Close();
+                con.Dispose(); //calls close and then disposes the object
+            }
         }
 
         public static void Update(Student stu)
