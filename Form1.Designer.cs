@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lstStudents = new System.Windows.Forms.ListBox();
-            this.btnViewStudents = new System.Windows.Forms.Button();
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -40,21 +39,10 @@
             this.lstStudents.Name = "lstStudents";
             this.lstStudents.Size = new System.Drawing.Size(273, 199);
             this.lstStudents.TabIndex = 0;
-            this.lstStudents.Visible = false;
-            // 
-            // btnViewStudents
-            // 
-            this.btnViewStudents.Location = new System.Drawing.Point(32, 270);
-            this.btnViewStudents.Name = "btnViewStudents";
-            this.btnViewStudents.Size = new System.Drawing.Size(105, 44);
-            this.btnViewStudents.TabIndex = 1;
-            this.btnViewStudents.Text = "View Students";
-            this.btnViewStudents.UseVisualStyleBackColor = true;
-            this.btnViewStudents.Click += new System.EventHandler(this.btnViewStudents_Click);
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(187, 270);
+            this.btnAddStudent.Location = new System.Drawing.Point(116, 266);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(105, 44);
             this.btnAddStudent.TabIndex = 2;
@@ -68,7 +56,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 353);
             this.Controls.Add(this.btnAddStudent);
-            this.Controls.Add(this.btnViewStudents);
             this.Controls.Add(this.lstStudents);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -80,7 +67,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox lstStudents;
-        private System.Windows.Forms.Button btnViewStudents;
         private System.Windows.Forms.Button btnAddStudent;
     }
 }

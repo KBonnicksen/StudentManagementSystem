@@ -22,14 +22,17 @@ namespace StudentManagementSystem
         //Example is the math class
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            PopulateStudentListBox();
         }
 
-        private void btnViewStudents_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Retrieves all students from database and puts them in listbox
+        /// </summary>
+        private void PopulateStudentListBox()
         {
-            lstStudents.Visible = true;
+            lstStudents.Items.Clear();
             List<Student> students = StudentDB.GetAllStudents();
-
+            
             foreach (Student s in students)
             {
                 lstStudents.Items.Add($"{s.FirstName} {s.LastName}");
@@ -38,7 +41,10 @@ namespace StudentManagementSystem
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            
+            frmAddStudent addStuForm = new frmAddStudent();
+            addStuForm.ShowDialog();
+
+            PopulateStudentListBox();
         }
     }
 }
