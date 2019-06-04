@@ -1,6 +1,6 @@
 ﻿namespace StudentManagementSystem
 {
-    partial class frmAddStudent
+    partial class frmAddUpdateStudent
     {
         /// <summary>
         /// Required designer variable.

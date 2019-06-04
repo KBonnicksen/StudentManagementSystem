@@ -30,6 +30,8 @@
         {
             this.lstStudents = new System.Windows.Forms.ListBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
+            this.btnDeleteStudent = new System.Windows.Forms.Button();
+            this.btnUpdateStudent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstStudents
@@ -42,7 +44,7 @@
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(116, 266);
+            this.btnAddStudent.Location = new System.Drawing.Point(366, 96);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(105, 44);
             this.btnAddStudent.TabIndex = 2;
@@ -50,11 +52,33 @@
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
+            // btnDeleteStudent
+            // 
+            this.btnDeleteStudent.Location = new System.Drawing.Point(366, 22);
+            this.btnDeleteStudent.Name = "btnDeleteStudent";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(105, 44);
+            this.btnDeleteStudent.TabIndex = 3;
+            this.btnDeleteStudent.Text = "Delete Student";
+            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
+            // 
+            // btnUpdateStudent
+            // 
+            this.btnUpdateStudent.Location = new System.Drawing.Point(366, 170);
+            this.btnUpdateStudent.Name = "btnUpdateStudent";
+            this.btnUpdateStudent.Size = new System.Drawing.Size(105, 44);
+            this.btnUpdateStudent.TabIndex = 4;
+            this.btnUpdateStudent.Text = "Update Student";
+            this.btnUpdateStudent.UseVisualStyleBackColor = true;
+            this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 353);
+            this.ClientSize = new System.Drawing.Size(504, 253);
+            this.Controls.Add(this.btnUpdateStudent);
+            this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.lstStudents);
             this.Name = "Form1";
@@ -68,6 +92,8 @@
 
         private System.Windows.Forms.ListBox lstStudents;
         private System.Windows.Forms.Button btnAddStudent;
+        private System.Windows.Forms.Button btnDeleteStudent;
+        private System.Windows.Forms.Button btnUpdateStudent;
     }
 }
 

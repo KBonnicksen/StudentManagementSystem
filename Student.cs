@@ -9,7 +9,7 @@ namespace StudentManagementSystem
     /// <summary>
     /// Represents an individual Clover Park student
     /// </summary>
-    class Student
+    public class Student
     {
         //This is the default no-argws constructor
         //The sompiler will create a no-args constructor
@@ -22,7 +22,6 @@ namespace StudentManagementSystem
         {
             FirstName = firstName;
             LastName = lastName;
-
         }
         /// <summary>
         /// The legal first name of the student
@@ -70,6 +69,11 @@ namespace StudentManagementSystem
         {
             return $"{LastName},{FirstName}{separator}" +
                 $"{DateOfBirth.ToShortDateString()}{separator}";
+        }
+
+        public override string ToString()
+        {
+            return FullName;
         }
     }
 }

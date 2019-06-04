@@ -11,11 +11,29 @@ using System.Windows.Forms;
 
 namespace StudentManagementSystem
 {
-    public partial class frmAddStudent : Form
+    public partial class frmAddUpdateStudent : Form
     {
-        public frmAddStudent()
+        private Student existingStudent;
+
+        //Default value, makes it so you do not HAVE to pass in a student
+        public frmAddUpdateStudent(Student s = null)
         {
             InitializeComponent();
+            existingStudent = s;
+
+            if(s != null)
+            {
+                btnRegisterStudent.Text = "Update student";
+                //change form title
+                Text = "Updating student : " + s.StudentId;
+
+                txtFirstName.Text = s.FirstName;
+                txtLastName.Text = s.LastName;
+                txtProgram.Text = s.ProgramOfChoice;
+                dtpDateOfBirth.Value = s.DateOfBirth;
+
+                txtFirstName.Focus();
+            }
         }
 
         private void frmAddStudent_Load(object sender, EventArgs e)

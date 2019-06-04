@@ -102,9 +102,28 @@ namespace StudentManagementSystem
             throw new NotImplementedException();
         }
 
-        public static void Delete(int ID)
+        public static bool Delete(int ID)
         {
-            throw new NotImplementedException();
+            SqlConnection con = SmsDB.GetConnection();
+
+            SqlCommand delCmd = new SqlCommand();
+            delCmd.Connection = con;
+            delCmd.CommandText = "DELETE " +
+                                 "FROM Students " +
+                                 "WHERE SID = @id";
+            delCmd.Parameters.AddWithValue("@id", ID);
+
+            try
+            {
+                con.Open();
+                int rowsAffected = delCmd.ExecuteNonQuery();
+
+                return (rowsAffected == 1);
+            }
+            finally
+            {
+                con.Dispose();
+            }
         }
     }
 }
